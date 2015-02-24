@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Reddit Player</title>
+        <meta name="description" content="Listen to your subreddits in style.">
+    <meta name="viewport" content="width=device-width">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Reddit Player"
+    />
+    <meta property="og:url" content="http://redditplayer.instafork.com"/>
+    <meta property="og:image" content="http://redditplayer.instafork.com/img/redditplayer.png"
+    />
+    <meta property="og:description" content="Listen to your subreddits in style."
+    />
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/soundcloud/sc-player-standard.css" type="text/css">
+        <!--<script src="js/vendor/modernizr-2.6.2.min.js"></script>-->
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <iframe id="invisibleframe"></iframe>
+        <div id="playerwrapper">
+            <div id="player">
+                
+            </div>
+            <div id="soundcloud">
+
+            </div>
+            <div id="soundcloudmeta">
+
+            </div>
+            <div id="playeroverlay">
+                <ul id="meta">
+                    <li class="nowplaying">now playing</li>
+                    <li id="viewcomments">View comments on Reddit</li>
+                    <li id="originallink">Go to original YouTube link</li>
+                    <li id="tweetit">Tweet it</li>
+                </ul>
+
+                <div id="footer">
+                    <div class="subreddit">
+                        Not listening to anything
+                    </div>
+                </div>
+
+                <div id="intro">
+                    <h1>Welcome to reddit player</h1>
+                    Pick some subreddits to get started.
+                    <br>
+                    <div class="tiny">made by <a href="http://reddit.com/u/nfrmn" target="_blank">nfrmn</a>.</div>
+                </div>
+            </div>
+        </div>
+        <div id="urlswrapper">
+            <div class="controls">
+                <div class="sunken">
+                    <button id="playpause" class="playbutton"></button>
+                    <button id="ffwd"></button>
+                    <button id="rewind"></button>
+                    <div id="debug">reddit <strong>player</strong></div>
+                    <div id="subredditholder">
+                        <input placeholder="/r/subreddit" value=""></input>
+                        <ul id="subreddits">
+                            <li class="greysub">Press enter to add subreddits.</li>
+                        </ul>
+                    </div>
+                    <button id="refresh" disabled></button>
+
+                    <div id="progresscontainer">
+                        <div id="progress">
+
+                        </div>
+                    </div>
+                    <div id="totaltime">
+                        00:00
+                    </div>
+                </div>
+            </div>
+            <div id="ulwrapper">
+                <ul id="urls">
+                    <li class="initial">Nothing loaded yet.</li>
+                </ul>
+            </div>
+        </div>
+        <div id="fb-root"></div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=381651568592822";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        <script>
+            var player;
+            var ytplayer;
+            var splayer;
+            // Load the IFrame Player API code asynchronously.
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/player_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+            // Replace the 'ytplayer' element with an <iframe> and
+            // YouTube player after the API code downloads.
+            //var player;
+            
+            function onYouTubePlayerAPIReady() {
+                player = new YT.Player('player', {
+                    height: '100%',
+                    width: '100%',
+                    playerVars: {
+                        controls: '0',
+                        iv_load_policy: '3'
+                    },
+                    events: {
+                        onStateChange: 'ytStateChange',
+                    }
+                });
+
+                ytplayer = document.getElementById("player");
+            }
+        </script>
+        <script src="js/soundcloud.player.api.js"></script>
+        <script src="js/sc-player.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            var _gaq=[['_setAccount','UA-28573380-1'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </bod</html>
+<p>
