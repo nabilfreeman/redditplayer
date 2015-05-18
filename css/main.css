@@ -28,6 +28,10 @@ textarea {
     color: #222;
 }
 
+* {
+    outline:none;
+}
+
 body {
     font-size: 1em;
     line-height: 1.4;
@@ -105,8 +109,9 @@ textarea {
 
 body{
     margin:0;padding:0;
-    background:#F0F0F0;
+    background:#000;
     font-family: 'Proxima Nova', 'ProximaNova', Helvetica, Arial, sans-serif;
+    overflow:hidden;
 }
 
 .red{
@@ -124,9 +129,9 @@ body{
 
     margin:0 auto;
 
-    box-shadow:0px 0px 40px rgba(0,0,0,0.3);
+    box-shadow:0px 0px 40px rgba(0,0,0,0.1);
 
-    position:fixed;
+    position:absolute;
     top:0px;
     left:0px;
     width:360px;
@@ -138,7 +143,7 @@ body{
 
 #ulwrapper{
     position:absolute;
-    top:164px;
+    top:160px;
     left:0;
     bottom:0;
     width:360px;
@@ -166,7 +171,6 @@ body{
     color:#000;
     margin-bottom:1px;
     list-style-type: none;
-    border-bottom:1px solid #DEDEDE;
     border-top:1px solid #DEDEDE;
     font-size:14px;
     overflow:hidden;
@@ -697,11 +701,9 @@ body{
     width:18px;
     height:18px;
     border-radius:50%;
-    background:url('/app/images/app/shiny.png'), #DE2121;
+    background:#DE2121;
     background-position:center center;
     background-repeat:no-repeat;
-    box-shadow:inset 0px -3px 4px rgba(0,0,0,0.1), 0px 0px 10px rgba(0,0,0,0.1);
-    border:1px solid #6e6e6e;
     position:absolute;
     top:5px;
     outline: none !important;
@@ -720,8 +722,7 @@ body{
     right:10px;
     bottom:10px;
     width:60px;
-    text-shadow:1px 1px 0px #ABABAB;
-    color:#555;
+    color:#FFF;
     /*color:#FFF;
     /*background:#666;*/
     border-radius:3px;
@@ -755,7 +756,7 @@ body{
 }
 
 #playerwrapper{
-    position:fixed;
+    position:absolute;
     top:-40px;
     right:0;
     bottom:-40px;
@@ -1166,16 +1167,13 @@ body{
 }
 ::-webkit-scrollbar-track {
     background: #555;
-    -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.2);
 }
 ::-webkit-scrollbar-thumb {
     background: #AAA;
-    -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.2);
 }
 ::-webkit-scrollbar-thumb:hover {
     background: #AAA;
 }
 ::-webkit-scrollbar-thumb:active {
     background: #888;
-    -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.3);
 }
