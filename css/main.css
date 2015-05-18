@@ -739,14 +739,7 @@ body{
     display:none;
 }
 
-.playing{/*
-    -webkit-transition: border-right 0.3s ease;
-       -moz-transition: border-right 0.3s ease;
-         -o-transition: border-right 0.3s ease;
-        -ms-transition: border-right 0.3s ease;
-            transition: border-right 0.3s ease;*/
-
-    box-shadow:inset 0px 2px 10px rgba(0,0,0,0.3);
+.playing{
     border-left:10px solid #de2121 !important;
     border-top:0 !important;
     border-bottom:0px !important;
@@ -762,6 +755,10 @@ body{
     bottom:-40px;
     left:360px;
     z-index:5;
+}
+
+#playerwrapper object{
+    visibility:hidden !important;
 }
 
 #playeroverlay{
@@ -897,8 +894,7 @@ body{
     height:240px;
     font-size:22px;
     text-align:center;
-    color:#333;
-    text-shadow:1px 1px 0px rgba(255,255,255,0.7);
+    color:#FFF;
 }
 #intro h1{
     font-size:36px;
@@ -906,6 +902,9 @@ body{
 .tiny{
     padding-top:20px;
     font-size:16px;
+}
+.tiny a{
+    color:#FFF;
 }
 
 #player{
