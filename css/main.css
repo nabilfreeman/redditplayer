@@ -105,8 +105,7 @@ textarea {
 
 body{
     margin:0;padding:0;
-    background:url("http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/bedge_grunge.png"), #CDCDCD;
-    background-attachment:fixed;
+    background:#F0F0F0;
     font-family: 'Proxima Nova', 'ProximaNova', Helvetica, Arial, sans-serif;
 }
 
@@ -207,7 +206,6 @@ body{
     width:360px;
     z-index:30;
     border-bottom:1px solid #333;
-    box-shadow: inset 0px 5px 20px rgba(0,0,0,0.3);
 
     -webkit-touch-callout: none;
     -webkit-user-select: none;
