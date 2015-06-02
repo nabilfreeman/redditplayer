@@ -15,3 +15,5 @@ Use it at a party or for your own pleasure while preparing nourishment in the ki
 - /r/futuregarage
 - /r/trap
 - /r/deephouse
+
+### p.s. sorry i used jquery. please forgive me.
